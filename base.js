@@ -1,4 +1,5 @@
 (function(){
+	// adds slider according to the number of itens that is already inside the carousel
 	c = document.getElementById("showoff");
 	l = c.getElementsByClassName("carousel-item").length;
 	var sliderbtn = document.createDocumentFragment();
@@ -23,18 +24,15 @@ $('.multi-item-carousel').carousel({
 // for every slide in carousel, copy the next slide's item in the slide.
 // Do the same for the next, next item. 
 
-var maxitems = 3;
-//refactor each to run inside each .multi.. .item inside carousel docfrag
+const maxitems = 3;
 $('.multi-item-carousel .item').each(function(){ //todo docfrag.queryselect
 //for each item in carousel run this function
-//That is the reason why it runs 7 times and doesnt run anymore
-//It probably changes the way carousels work, but what keeps running is the carousel js
 	var frag = $(document.createDocumentFragment());
 	var next = $(this);
 	for ( i = 1; i < maxitems; ++i ) {
 		next = next.next();
-		if (!next.length) {
-			next = $(this).siblings(':first'); //set as first element
+		if (!next.length) { //if we dont have any more itens
+			next = $(this).siblings(':first'); //set next item as first element
 		}
 		//clone content of the next/first inside item into the current item
 		next.children(':first-child').clone().appendTo(frag);

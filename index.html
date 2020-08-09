@@ -37,6 +37,10 @@
       </div>
     </main>
     <script src="base.js"/>
-    <script>$("#showoffprods").carousel({ interval: false });</script>
+    <script>
+      $(window).ready(makeCarousel).resize(makeCarousel)
+      $("#showoffprods").carousel({ interval: false })$(window).ready(makeCarousel).resize(makeCarousel)
+;
+    </script>
   </body>
 </html>

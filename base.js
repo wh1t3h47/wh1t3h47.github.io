@@ -2,6 +2,9 @@
 	// adds slider according to the number of itens that is already inside the carousel
 	c = document.getElementById("showoff");
 	l = c.getElementsByClassName("carousel-item").length;
+	if ( l[0].className.indexOf("active") === -1 ) { //if first item not .active
+        	l[0].className += " active"; //sets first item to active	
+	}
 	var sliderbtn = document.createDocumentFragment();
 	var f = document.createElement("li");
 	f.setAttribute("class", "active");
@@ -41,3 +44,6 @@ $('.multi-item-carousel .item').each(function(){ //todo docfrag.queryselect
 	//next.children(':first-child').clone().appendTo($(this));
 });
 
+    if ( l[0].className.indexOf("active") === -1 ) { //if not .active //jquery has_class
+        l[0].className += " active"; //sets first item to active
+    }
